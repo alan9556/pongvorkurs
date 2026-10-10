@@ -1,6 +1,8 @@
 import entities.Ball;
 import entities.Paddle;
 
+import java.awt.*;
+
 public class PongGame extends GraphicsApplication {
     private Paddle leftPaddle;
     private Paddle rightPaddle;
@@ -17,5 +19,10 @@ public class PongGame extends GraphicsApplication {
         game.run();
     }
 
-
+    @Override
+    public void paint(Graphics2D graphics) {
+        leftPaddle.paint(graphics);
+        rightPaddle.paint(graphics);
+        ball.paint(graphics);
+    }
 }

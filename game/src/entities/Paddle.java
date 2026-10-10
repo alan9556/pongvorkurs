@@ -13,9 +13,8 @@ public class Paddle {
     }
 
     public void paint(Graphics2D graphics) {
-        int bottomX = topX - height;
         int bottomY = topY - height;
         graphics.setColor(Color.WHITE);
-        graphics.drawLine(topX, topY, bottomX, bottomY);
+        graphics.drawLine(topX, topY, topX, bottomY);
     }
 }

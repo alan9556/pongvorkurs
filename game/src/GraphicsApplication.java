@@ -33,9 +33,11 @@ public class GraphicsApplication {
 
     /**
      * Starts the application. Runs until the {@link #stop} method is called.
+     * Firstly, refresh() is being called in given time intervals.
      */
     public final void run() {
-        Timer refreshTimer = new Timer(1000 / numRefreshPerSecond, event -> refresh());
+        Timer refreshTimer = new Timer(1000 / numRefreshPerSecond,
+                event -> refresh());
         refreshTimer.start();
         KeyListener keyListener = new KeyListener();
         canvas.setFocusable(true);
@@ -56,6 +58,7 @@ public class GraphicsApplication {
      * @param graphics the Graphics context in which to paint
      */
     public void paint(Graphics2D graphics) {
+
     }
 
     /**
@@ -95,6 +98,9 @@ public class GraphicsApplication {
         return canvasSize;
     }
 
+    /**
+     * Improves video quality and repaints everything, to put it short.
+     */
     private void refresh() {
         update(1.0 / numRefreshPerSecond);
         BufferStrategy bufferStrategy = canvas.getBufferStrategy();
@@ -113,6 +119,10 @@ public class GraphicsApplication {
         } while (bufferStrategy.contentsLost());
     }
 
+    /**
+     * makes it possible to ask for certain keys (eg KeyEvent.VK_SPACE) instead of cryptic numbers
+     * for detecting a specific keyboard button.
+     */
     private class KeyListener extends KeyAdapter {
         @Override
         public void keyPressed(KeyEvent event) {
