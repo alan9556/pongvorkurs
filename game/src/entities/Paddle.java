@@ -1,5 +1,7 @@
 package entities;
 
+import java.awt.*;
+
 public class Paddle {
     private int topX;
     private int topY;
@@ -8,5 +10,12 @@ public class Paddle {
         this.topX = tx;
         this.topY = ty;
         this.height = height;
+    }
+
+    public void paint(Graphics2D graphics) {
+        int bottomX = topX - height;
+        int bottomY = topY - height;
+        graphics.setColor(Color.WHITE);
+        graphics.drawLine(topX, topY, bottomX, bottomY);
     }
 }
