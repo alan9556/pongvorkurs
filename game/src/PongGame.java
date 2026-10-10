@@ -14,11 +14,6 @@ public class PongGame extends GraphicsApplication {
         this.ball = new Ball(200, 20, 5);
     }
 
-    public static void main(String[] args) {
-        PongGame game = new PongGame();
-        game.run();
-    }
-
     @Override
     public void paint(Graphics2D graphics) {
         leftPaddle.paint(graphics);
